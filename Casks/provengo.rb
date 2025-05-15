@@ -8,7 +8,6 @@ cask "provengo" do
   homepage "https://www.provengo.tech/"
 
   depends_on cask: "temurin@11"
-  depends_on formula: "graphviz"
 
   binary "#{staged_path}/provengo"
 
