@@ -21,7 +21,7 @@ class Provengo < Formula
 
     libexec.install "Provengo-2025-03-30.uber.jar"
     (bin/"provengo").write <<~EOS
-      #!/bin/bash
+    #!/bin/bash
 	    exec "java" -jar "#{libexec}/Provengo-2025-03-30.uber.jar" "$@"
     EOS
   end
