@@ -6,8 +6,8 @@ class Provengo < Formula
   sha256 "c63c50ed4b8d7e12a7dda289e3503d8bdd92cd9b1b7dd0dfa6c5c62df8a9a0a8"
 
   def check_java_version
-    java_version = `java -version 2>&1 | awk -F '"' "/version/ {print $2}"`.chomp
-    java_major = java_version.split(".").first.to_i
+    java_version = `java -version 2>&1 | awk -F '"' '/version/ {print $2}'`.chomp
+    java_major = java_version.split('.').first.to_i
 
     if java_major < 11
       odie "Error: Java 11 or higher is required. Detected version: #{java_version}"
@@ -22,11 +22,12 @@ class Provengo < Formula
     libexec.install "Provengo-2025-03-30.uber.jar"
     (bin/"provengo").write <<~EOS
       #!/bin/bash
-      exec "java" -jar "#{libexec}/Provengo-2025-03-30.uber.jar" "$@"
+	exec "java" -jar "#{libexec}/Provengo-2025-03-30.uber.jar" "$@"
     EOS
   end
 
   test do
-    system bin/"provengo", "--version"
+    system "#{bin}/provengo", "--version"
   end
 end
+
