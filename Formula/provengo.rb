@@ -7,7 +7,7 @@ class Provengo < Formula
 
   def check_java_version
     java_version = `java -version 2>&1 | awk -F '"' "/version/ {print $2}"`.chomp
-    java_major = java_version.split(".").first.to_i
+    java_major = java_version.split('.').first.to_i
 
     if java_major < 11
       odie "Error: Java 11 or higher is required. Detected version: #{java_version}"
